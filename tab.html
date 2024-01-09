@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .tab_wrap {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      background-color: brown;
+      padding-left: 20px;
+      height: 80px;
+    }
+    .button {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .content_wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .content {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+    }
+    .red {
+      background-color: red;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .green {
+      background-color: green;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="tab_wrap">
+        <button class="button" onclick="clickTab('all')">all</button>
+        <button class="button" onclick="clickTab('business')">business</button>
+        <button class="button" onclick="clickTab('hospital')">hospital</button>
+        <button class="button" onclick="clickTab('landing')">landing</button>
+      </div>
+      <div class="content_wrap">
+        <div class="content business red"></div>
+        <div class="content hospital blue"></div>
+        <div class="content landing green"></div>
+        <div class="content landing green"></div>
+        <div class="content hospital blue"></div>
+        <div class="content hospital blue"></div>
+        <div class="content hospital blue"></div>
+        <div class="content business red"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let contentLength = document.querySelectorAll(".content").length;
+
+    const clickTab = (type) => {
+      let typeLength = document.querySelectorAll(`.${type}`).length;
+
+      if (type == "all") {
+        for (let i = 0; i < contentLength; i++) {
+          document.querySelectorAll(".content")[i].style.display = "block";
+        }
+      } else {
+        for (let i = 0; i < contentLength; i++) {
+          document.querySelectorAll(".content")[i].style.display = "none";
+        }
+        for (let j = 0; j < typeLength; j++) {
+          document.querySelectorAll(`.${type}`)[j].style.display = "block";
+        }
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        padding: 400px 0;
+      }
+      .wrapper {
+        margin: 0 auto;
+        padding: 40px 0;
+        width: 100%;
+        max-width: 1200px;
+        background-color: #e1e1e1;
+        display: flex;
+        justify-content: center;
+      }
+      .animation_wrap {
+        width: 650px;
+        max-width: 100%;
+        /* height: 300px; */
+        padding: 20px 0;
+        background-color: #fff;
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .animation_wrap_layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+      }
+      .animation_line {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        gap: 7px;
+      }
+      .animation_box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        height: 60px;
+        font-size: 16px;
+        font-weight: 800;
+        color: #fff;
+        border-radius: 100px;
+        position: relative;
+        transition: all 0.4s;
+      }
+      .animation_box1,
+      .animation_box5,
+      .animation_box7,
+      .animation_box8 {
+        background-color: blue;
+      }
+      .animation_box3,
+      .animation_box6,
+      .animation_box9 {
+        background-color: blueviolet;
+      }
+      .animation_box2,
+      .animation_box4 {
+        background-color: #fff;
+        color: blue;
+        border: 1px solid blue;
+        padding: 0;
+        width: 60px;
+      }
+      .animation_box1 {
+        transform: translate(3px, 4px) rotate(5deg);
+      }
+      .animation_box2 {
+        transform: translateX(-3px);
+      }
+      .animation_box3 {
+        transform: rotate(7deg);
+      }
+      .animation_box4 {
+        transform: translateY(8px) rotate(-10deg);
+      }
+      .animation_box5 {
+        transform: translate(5px) rotate(5deg);
+      }
+      .animation_box6 {
+        transform: rotate(-12deg);
+      }
+      .animation_box7 {
+        transform: rotate(12deg);
+      }
+      .animation_box8 {
+        transform: rotate(-10deg);
+      }
+      .animation_box9 {
+        transform: translateY(-2px) rotate(5deg);
+      }
+    </style>
+
+    <div class="container">
+      <div class="wrapper">
+        <div class="animation_wrap">
+          <div class="animation_wrap_layer"></div>
+          <div class="animation_line">
+            <span class="animation_box animation_box1">접근성</span>
+            <span class="animation_box animation_box2">공감</span>
+            <span class="animation_box animation_box3">좋은 디자인이란</span>
+            <span class="animation_box animation_box4">편의</span>
+            <span class="animation_box animation_box5">사용자</span>
+          </div>
+          <div class="animation_line">
+            <span class="animation_box animation_box6">소통</span>
+            <span class="animation_box animation_box7">감각을 열어요</span>
+            <span class="animation_box animation_box8">가독성</span>
+            <span class="animation_box animation_box9">톤앤매너</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const $animationWrap = document.querySelector(".animation_wrap");
+      const $layer = document.querySelector(".animation_wrap_layer");
+      const $box1 = document.querySelector(".animation_box1");
+      const $box2 = document.querySelector(".animation_box2");
+      const $box3 = document.querySelector(".animation_box3");
+      const $box4 = document.querySelector(".animation_box4");
+      const $box5 = document.querySelector(".animation_box5");
+      const $box6 = document.querySelector(".animation_box6");
+      const $box7 = document.querySelector(".animation_box7");
+      const $box8 = document.querySelector(".animation_box8");
+      const $box9 = document.querySelector(".animation_box9");
+
+      $layer.addEventListener("mousemove", (e) => {
+        let x = e.layerX;
+        let y = e.layerY;
+
+        console.log(x, y);
+        if (x > 70 && x < 117 && y > 24 && y < 88) {
+          // $box1.style.cssText = "transform: translate(1px, 10px) rotate(-5deg)";
+          $box1.style.transform = "translate(1px, 10px) rotate(-5deg)";
+        } else if (x > 118 && x < 168 && y > 24 && y < 88) {
+          $box1.style.transform = "translate(4px,10px) rotate(10deg)";
+          $box2.style.transform = "translate(-4px, 10px) rotate(-10deg)";
+        } else {
+          $box1.style.transform = "translate(3px, 4px) rotate(5deg)";
+          $box2.style.transform = "translateX(-3px)";
+        }
+
+        if (
+          (x > 70 && x < 117 && y > 24 && y < 88) ||
+          (x > 95 && x < 128 && y > 88 && y < 153)
+        ) {
+          $box6.style.transform = "translateY(2px) rotate(-12deg)";
+        } else if (
+          (x > 118 && x < 168 && y > 24 && y < 88) ||
+          (x > 129 && x < 250 && y > 89 && y < 153)
+        ) {
+          $box6.style.transform = "translateY(4px) rotate(0)";
+        } else {
+          $box6.style.transform = "translateY(0) rotate(-12deg)";
+        }
+      });
+    </script>
+  </body>
+</html>

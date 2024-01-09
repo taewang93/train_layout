@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid layout</title>
+    <link rel="stylesheet" href="./grid.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box1">
+        <div class="box_inner"><div class="box_content">1</div></div>
+      </div>
+      <div class="box box2">
+        <div class="box_inner"><div class="box_content">2</div></div>
+      </div>
+      <div class="box box3">
+        <div class="box_inner"><div class="box_content">3</div></div>
+      </div>
+      <div class="box box4">
+        <div class="box_inner"><div class="box_content">4</div></div>
+      </div>
+      <div class="box box5">
+        <div class="box_inner"><div class="box_content">5</div></div>
+      </div>
+      <div class="box box6">
+        <div class="box_inner"><div class="box_content">6</div></div>
+      </div>
+      <div class="box box7">
+        <div class="box_inner"><div class="box_content">7</div></div>
+      </div>
+      <div class="box box8">
+        <div class="box_inner"><div class="box_content">8</div></div>
+      </div>
+      <div class="box box9">
+        <div class="box_inner"><div class="box_content">9</div></div>
+      </div>
+      <div class="box box10">
+        <div class="box_inner"><div class="box_content">10</div></div>
+      </div>
+    </div>
+
+    <script>
+      let colHeight1 = document.querySelector(".box1").offsetHeight;
+      let colHeight2 = document.querySelector(".box2").offsetHeight;
+      let colHeight3 = document.querySelector(".box3").offsetHeight;
+      let colHeight4 = document.querySelector(".box4").offsetHeight;
+
+      const boxLength = document.querySelectorAll(".box").length;
+      const targetWidth = 25;
+      let targetNumber;
+
+      for (let i = 1; i < boxLength + 1; i++) {
+        if (i < 5) {
+          document.querySelector(".box" + i).style.left =
+            targetWidth * (i - 1) + "%";
+        } else {
+          let colHeightMin = Math.min(
+            colHeight1,
+            colHeight2,
+            colHeight3,
+            colHeight4
+          );
+
+          document.querySelector(".box" + i).style.top = colHeightMin + "px";
+
+          if (colHeightMin == colHeight1) {
+            document.querySelector(".box" + i).style.left = "0%";
+            colHeight1 =
+              colHeight1 + document.querySelector(".box" + i).offsetHeight;
+          } else if (colHeightMin == colHeight2) {
+            document.querySelector(".box" + i).style.left = "25%";
+            colHeight2 =
+              colHeight2 + document.querySelector(".box" + i).offsetHeight;
+          } else if (colHeightMin == colHeight3) {
+            document.querySelector(".box" + i).style.left = "50%";
+            colHeight3 =
+              colHeight3 + document.querySelector(".box" + i).offsetHeight;
+          } else if (colHeightMin == colHeight4) {
+            document.querySelector(".box" + i).style.left = "75%";
+            colHeight4 =
+              colHeight4 + document.querySelector(".box" + i).offsetHeight;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

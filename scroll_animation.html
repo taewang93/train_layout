@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+      }
+      section {
+        min-height: 80dvh;
+      }
+      .section_inner {
+        width: 100%;
+        min-height: 80dvh;
+      }
+
+      .section_inner {
+        transform: scale(0.8);
+        opacity: 0.6;
+        transition: all 0.6s;
+        transition-timing-function: ease-in-out;
+      }
+      section.on .section_inner {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      .section1 .section_inner {
+        background-color: burlywood;
+      }
+      .section2 .section_inner {
+        background-color: blueviolet;
+      }
+      .section3 .section_inner {
+        background-color: aquamarine;
+      }
+      .section4 .section_inner {
+        background-color: cadetblue;
+      }
+    </style>
+
+    <section class="section1"><div class="section_inner"></div></section>
+    <section class="section2"><div class="section_inner"></div></section>
+    <section class="section3"><div class="section_inner"></div></section>
+    <section class="section4"><div class="section_inner"></div></section>
+
+    <script>
+      const clientHeight = window.innerHeight;
+      const $section1 = document.querySelector(".section1");
+      const $section2 = document.querySelector(".section2");
+      const $section3 = document.querySelector(".section3");
+      const $section4 = document.querySelector(".section4");
+
+      const scrollAnimation = () => {
+        let currentY = window.pageYOffset;
+        let wantY = currentY + clientHeight * 0.7;
+
+        if (wantY > 0 && wantY < $section2.offsetTop) {
+          $section1.classList.add("on");
+        }
+        if (wantY > $section2.offsetTop) {
+          $section2.classList.add("on");
+        } else {
+          $section2.classList.remove("on");
+        }
+
+        console.log(`${currentY} // ${wantY} // ${$section2.offsetTop}`);
+      };
+
+      window.addEventListener("scroll", () => {
+        scrollAnimation();
+      });
+      scrollAnimation();
+    </script>
+  </body>
+</html>

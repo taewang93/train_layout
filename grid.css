@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.tab_wrap {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: brown;
+  padding-left: 20px;
+  height: 80px;
+}
+.button {
+  color: #fff;
+  font-size: 20px;
+}
+
+.content_wrap {
+  position: relative;
+  transition: all 1s;
+}
+.content_wrap.on {
+  transition: all 0s;
+}
+.content_gradient {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(
+    0deg,
+    #ffffff 3.65%,
+    rgba(255, 255, 255, 0.54) 51.04%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: all 0.4s;
+  opacity: 1;
+}
+.content_gradient.on {
+  transition: all 0s;
+  opacity: 0;
+}
+.box {
+  position: absolute;
+  width: 25%;
+  transition: all 0.6s;
+
+  /* top: 0;
+  left: 0; */
+  opacity: 0;
+}
+.box.no_transition {
+  transition: all 0s;
+}
+.box_inner {
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+}
+.box_content {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellowgreen;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  color: #fff;
+}
+
+.box1 {
+  height: 200px;
+}
+.box2 {
+  height: 100px;
+}
+.box3 {
+  height: 50px;
+}
+.box4 {
+  height: 150px;
+}
+.box5 {
+  height: 180px;
+}
+.box6 {
+  height: 200px;
+}
+.box7 {
+  height: 90px;
+}
+.box8 {
+  height: 130px;
+}
+.box9 {
+  height: 300px;
+}
+.box10 {
+  height: 100px;
+}
+.box11 {
+  height: 80px;
+}
+.box12 {
+  height: 280px;
+}
+.box13 {
+  height: 130px;
+}
+.box14 {
+  height: 120px;
+}
+.box15 {
+  height: 100px;
+}
+.box16 {
+  height: 200px;
+}
+.box17 {
+  height: 170px;
+}
+.box18 {
+  height: 60px;
+}
+.box19 {
+  height: 150px;
+}
+.box20 {
+  height: 200px;
+}
+
+.business .box_content {
+  background-color: red;
+}
+.hospital .box_content {
+  background-color: burlywood;
+}
+.landing .box_content {
+  background-color: blueviolet;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background-color: brown;
+      }
+      .button {
+        color: #fff;
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .section {
+        height: 100vh;
+      }
+      .section1 {
+        background-color: antiquewhite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .section2 {
+        background-color: rebeccapurple;
+      }
+      .section3 {
+        background-color: burlywood;
+      }
+      .section4 {
+        background-color: olive;
+      }
+    </style>
+
+    <header class="header">
+      <button class="button" onclick="scrollButton('section1')">
+        section1
+      </button>
+      <button class="button" onclick="scrollButton('section2')">
+        section2
+      </button>
+      <button class="button" onclick="scrollButton('section3')">
+        section3
+      </button>
+      <button class="button" onclick="scrollButton('section4')">
+        section4
+      </button>
+    </header>
+
+    <section class="section section1"></section>
+    <section class="section section2"></section>
+    <section class="section section3"></section>
+    <section class="section section4"></section>
+
+    <script>
+      const scrollButton = (target) => {
+        let targetTop = document.querySelector("." + target).offsetTop;
+        window.scroll({ top: targetTop, behavior: "smooth" });
+      };
+    </script>
+  </body>
+</html>
